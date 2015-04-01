@@ -75,7 +75,7 @@ mongodb_service_state: started
 
 ```
 - hosts: all
-  suod: yes
+  sudo: yes
   roles:
     - franklinkim.mongodb
   vars:
