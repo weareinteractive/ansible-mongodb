@@ -1,0 +1,21 @@
+---
+
+- name: Creating directories
+  file:
+    state: directory
+    path: "{{ item }}"
+    owner: "{{ mongodb_user }}"
+    group: "{{ mongodb_user }}"
+    mode: 0755
+  with_items:
+    - mongodb_conf_dbpath
+    - mongodb_conf_logpath
+
+- name: Configuring mongodb
+  template:
+    src: etc-mongod.conf.j2
+    dest: /etc/mongod.conf
+    owner: root
+    group: root
+    mode: 0644
+  notify: mongodb restart

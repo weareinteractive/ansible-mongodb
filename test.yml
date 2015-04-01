@@ -1,0 +1,9 @@
+---
+
+- hosts: all
+  suod: yes
+  roles:
+    - franklinkim.mongodb
+  vars:
+    mongodb_packages:
+      - mongodb-org=3.0.1

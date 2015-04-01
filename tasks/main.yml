@@ -1,0 +1,19 @@
+---
+
+- include: install.yml
+  tags:
+    - web
+    - mongodb
+    - mongodb-install
+
+- include: config.yml
+  tags:
+    - web
+    - mongodb
+    - mongodb-config
+
+- include: service.yml
+  tags:
+    - web
+    - mongodb
+    - mongodb-service

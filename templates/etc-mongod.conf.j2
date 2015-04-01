@@ -1,0 +1,68 @@
+# {{ ansible_managed }}
+
+# Where to store the data.
+
+# Note: if you run mongodb as a non-root user (recommended) you may
+# need to create and set permissions for this directory manually,
+# e.g., if the parent directory isn't mutable by the mongodb user.
+dbpath={{ mongodb_conf_dbpath }}
+
+# where to log
+logpath={{ mongodb_conf_logpath }}
+logappend = {{ mongodb_conf_logappend | to_nice_json }}
+
+port = {{ mongodb_conf_port }}
+
+# Listen to local interface only. Comment out to listen on all interfaces.
+bind_ip = {{ mongodb_conf_bind_ip }}
+
+# Disables write-ahead journaling
+nojournal = {{ mongodb_conf_journal | to_nice_json }}
+
+# Enables periodic logging of CPU utilization and I/O wait
+cpu = {{ mongodb_conf_cpu | to_nice_json }}
+
+# Turn on/off security.  Off is currently the default
+auth = {{ mongodb_conf_auth | to_nice_json }}
+
+
+# Inspect all client data for validity on receipt (useful for
+# developing drivers)
+#objcheck = true
+
+# Enable db quota management
+quota = {{ mongodb_conf_quota | to_nice_json }}
+
+# Set oplogging level where n is
+#   0=off (default)
+#   1=W
+#   2=R
+#   3=both
+#   7=W+some reads
+#diaglog = 0
+
+# Ignore query hints
+#nohints = true
+
+# Enable the HTTP interface (Defaults to port 28017).
+httpinterface = {{ mongodb_conf_httpinterface | to_nice_json }}
+
+# Turns off server-side scripting.  This will result in greatly limited
+# functionality
+noscripting = {{ mongodb_conf_noscripting | to_nice_json }}
+
+# Turns off table scans.  Any query that would do a table scan fails.
+notablescan = {{ mongodb_conf_notablescan | to_nice_json }}
+
+# Specify .ns file size for new databases.
+# nssize = <size>
+
+# Replication Options
+
+# in replicated mongo databases, specify the replica set name here
+#replSet=setname
+# maximum size in megabytes for replication operation log
+#oplogSize=1024
+# path to a key file storing authentication info for connections
+# between replica set members
+#keyFile=/path/to/keyfile
