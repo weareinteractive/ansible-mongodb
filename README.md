@@ -79,8 +79,7 @@ mongodb_service_state: started
   roles:
     - franklinkim.mongodb
   vars:
-    mongodb_packages:
-      - mongodb-org=3.0.1
+    mongodb_package: mongodb-org=3.0.1
 ```
 
 ## Testing
