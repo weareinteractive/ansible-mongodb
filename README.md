@@ -1,4 +1,4 @@
-# Ansible mongodb Role
+# Ansible MongoDB Role
 
 [![Build Status](https://travis-ci.org/weareinteractive/ansible-mongodb.png?branch=master)](https://travis-ci.org/weareinteractive/ansible-mongodb)
 [![Stories in Ready](https://badge.waffle.io/weareinteractive/ansible-mongodb.svg?label=ready&title=Ready)](http://waffle.io/weareinteractive/ansible-mongodb)
