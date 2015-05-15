@@ -1,0 +1,12 @@
+# {{ ansible_managed }}
+
+/var/log/php5/*.log {
+  monthly
+  missingok
+  rotate 6
+  compress
+  delaycompress
+  notifempty
+  copytruncate
+  create 640 root adm
+}
