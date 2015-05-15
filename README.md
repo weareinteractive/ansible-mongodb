@@ -7,6 +7,7 @@
 >
 > * installs mongodb
 > * configures mongodb
+> * configures logrotate
 
 ## Installation
 
@@ -43,7 +44,7 @@ mongodb_package: mongodb-org
 # Run with security
 mongodb_conf_auth: no
 # Directory for datafiles
-mongodb_conf_dbpath: /var/lib/mongodb
+mongodb_conf_dbpath: /data/db
 # Log file to send write to instead of stdout
 mongodb_conf_logpath: /var/log/mongodb/mongod.log
 # Specify port number
