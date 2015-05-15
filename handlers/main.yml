@@ -1,11 +1,9 @@
 ---
 
-- name: mongodb reload
-  service:
-    name: mongod
-    state: reloaded
+- name: reload mongodb
+  service: name=mongod state=reloaded
+  when: mongodb_service_state != 'stopped'
 
-- name: mongodb restart
-  service:
-    name: mongod
-    state: restarted
+- name: restart mongodb
+  service: name=mongod state=restarted
+  when: mongodb_service_state != 'stopped'

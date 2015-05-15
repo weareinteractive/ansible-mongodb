@@ -1,0 +1,10 @@
+# {{ ansible_managed }}
+
+{{ mongodb_conf_logpath }} {
+  compress
+  copytruncate
+  daily
+  dateext
+  rotate 7
+  size 10M
+}
