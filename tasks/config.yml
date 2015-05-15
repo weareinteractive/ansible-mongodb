@@ -1,15 +1,25 @@
 ---
 
-- name: Creating directories
+- name: Create mongodb user
+  user:
+    name: "{{ mongodb_user }}"
+    group: "{{ mongodb_user }}"
+
+- name: Configuring database directory
   file:
     state: directory
-    path: "{{ item }}"
+    path: "{{ mongodb_conf_dbpath }}"
     owner: "{{ mongodb_user }}"
     group: "{{ mongodb_user }}"
     mode: 0755
-  with_items:
-    - mongodb_conf_dbpath
-    - mongodb_conf_logpath
+
+- name: Configuring log
+  file:
+    state: file
+    path: "{{ mongodb_conf_logpath }}"
+    owner: "{{ mongodb_user }}"
+    group: "{{ mongodb_user }}"
+    mode: 0644
 
 - name: Configuring mongodb
   template:
@@ -18,4 +28,12 @@
     owner: root
     group: root
     mode: 0644
-  notify: mongodb restart
+  notify: restart mongodb
+
+- name: Configuring logrotate
+  template:
+    src: etc-logrotate.d-mongodb.j2
+    dest: /etc/logrotate.d/mongodb
+    owner: root
+    group: root
+    mode: 0644
