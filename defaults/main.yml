@@ -33,6 +33,10 @@ mongodb_conf_notablescan: no
 mongodb_conf_cpu: no
 # Enable http interface
 mongodb_conf_httpinterface: no
+# Inspect all client data for validity on receipt
+mongodb_conf_objcheck: no
+# Disable data file preallocation.
+mongodb_conf_noprealloc: no
 
 # start on boot
 mongodb_service_enabled: yes
