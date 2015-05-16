@@ -16,19 +16,22 @@ port = {{ mongodb_conf_port }}
 # Listen to local interface only. Comment out to listen on all interfaces.
 bind_ip = {{ mongodb_conf_bind_ip }}
 
-# Disables write-ahead journaling
-nojournal = {{ mongodb_conf_journal | to_nice_json }}
-
 # Enables periodic logging of CPU utilization and I/O wait
 cpu = {{ mongodb_conf_cpu | to_nice_json }}
 
+# Disables write-ahead journaling
+nojournal = {{ mongodb_conf_journal | to_nice_json }}
+
 # Turn on/off security.  Off is currently the default
+#noauth = true
 auth = {{ mongodb_conf_auth | to_nice_json }}
 
+# Verbose logging output.
+#verbose = true
 
 # Inspect all client data for validity on receipt (useful for
 # developing drivers)
-#objcheck = true
+objcheck = {{ mongodb_conf_objcheck | to_nice_json }}
 
 # Enable db quota management
 quota = {{ mongodb_conf_quota | to_nice_json }}
@@ -53,6 +56,9 @@ noscripting = {{ mongodb_conf_noscripting | to_nice_json }}
 
 # Turns off table scans.  Any query that would do a table scan fails.
 notablescan = {{ mongodb_conf_notablescan | to_nice_json }}
+
+# Disable data file preallocation.
+noprealloc = {{ mongodb_conf_noprealloc | to_nice_json }}
 
 # Specify .ns file size for new databases.
 # nssize = <size>

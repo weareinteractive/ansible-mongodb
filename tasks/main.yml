@@ -1,19 +1,29 @@
 ---
 
+- include: vars.yml
+  tags:
+    - web
+    - mongodb
+    - vars
+    - mongodb-vars
+
 - include: install.yml
   tags:
     - web
     - mongodb
+    - install
     - mongodb-install
 
 - include: config.yml
   tags:
     - web
     - mongodb
+    - config
     - mongodb-config
 
 - include: service.yml
   tags:
     - web
     - mongodb
+    - service
     - mongodb-service
