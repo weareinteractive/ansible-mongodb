@@ -1,12 +1,5 @@
 ---
 
-- include: vars.yml
-  tags:
-    - web
-    - mongodb
-    - vars
-    - mongodb-vars
-
 - include: install.yml
   tags:
     - web
