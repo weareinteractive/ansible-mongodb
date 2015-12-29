@@ -34,7 +34,7 @@ $ git clone https://github.com/weareinteractive/ansible-mongodb.git roles/frankl
 Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
 
 ```
-# mongodb_package: mongodb-org=3.0.1
+# mongodb_package: mongodb-org=3.2.0
 
 # User
 mongodb_user: mongodb
@@ -80,7 +80,7 @@ mongodb_service_state: started
   roles:
     - franklinkim.mongodb
   vars:
-    mongodb_package: mongodb-org=3.0.1
+    mongodb_package: mongodb-org=3.2.0
 ```
 
 ## Testing
