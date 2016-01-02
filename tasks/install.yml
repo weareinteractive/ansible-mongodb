@@ -2,12 +2,12 @@
 
 - name: Adding APT key
   apt_key:
-    id: EA312927
-    keyserver: keyserver.ubuntu.com
+    id: "{{ mongodb_apt_key_id }}"
+    keyserver: "{{ mongodb_apt_key_server }}"
 
 - name: Add APT repository
   apt_repository:
-    repo: "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.2 main"
+    repo: "{{ mongodb_apt_repository }}"
     update_cache: yes
 
 - name: Installing package
