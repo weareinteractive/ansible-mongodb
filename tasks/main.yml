@@ -2,21 +2,21 @@
 
 - include: install.yml
   tags:
-    - web
+    - database:nosql
     - mongodb
     - install
     - mongodb-install
 
 - include: config.yml
   tags:
-    - web
+    - database:nosql
     - mongodb
     - config
     - mongodb-config
 
 - include: service.yml
   tags:
-    - web
+    - database:nosql
     - mongodb
     - service
     - mongodb-service

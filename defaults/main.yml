@@ -1,9 +1,13 @@
 ---
-# For more information about default variables see:
-# http://www.ansibleworks.com/docs/playbooks_variables.html#id26
-#
-# mongodb_package: mongodb-org=3.0.1
 
+# Mongodb version
+mongodb_version: 3.2
+# APT key id
+mongodb_apt_key_id: EA312927
+# APT key server
+mongodb_apt_key_server: keyserver.ubuntu.com
+# APT repository
+mongodb_apt_repository: "deb http://repo.mongodb.org/apt/{{ ansible_distribution|lower }} {{ ansible_distribution_release }}/mongodb-org/{{ mongodb_version }} {{ 'main' if ansible_distribution == 'debian' else 'multiverse' }}"
 # User
 mongodb_user: mongodb
 # Package

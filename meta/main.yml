@@ -4,7 +4,7 @@ galaxy_info:
   author: franklin
   company: We Are Interactive
   description: Installs and configures MongoDB
-  min_ansible_version: 1.8
+  min_ansible_version: 1.9
   license: MIT
   #
   # Below are all platforms currently available. Just uncomment
@@ -78,31 +78,22 @@ galaxy_info:
   #    versions:
   #      - all
   #      - any
-  #  - name: Debian
-  #    versions:
+    - name: Debian
+      versions:
   #      - all
   #      - etch
   #      - lenny
   #      - squeeze
-  #      - wheezy
+        - wheezy
   #
   # Below are all categories currently available. Just as with
   # the platforms above, uncomment those that apply to your role.
   #
-  categories:
-  #  - cloud
-  #  - cloud:ec2
-  #  - cloud:gce
-  #  - cloud:rax
-  #  - database
-  #  - database:nosql
-  #  - database:sql
-  #  - development
-  #  - monitoring
-  #  - networking
-  #  - packaging
-  #  - system
-    - web
+  galaxy_tags:
+    - database
+    - nosql
+    - mongo
+    - mongodb
 dependencies: []
   # List your role dependencies here, one per line. Only
   # dependencies available via galaxy should be listed here.

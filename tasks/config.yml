@@ -18,17 +18,12 @@
 
 - name: Configuring mongodb
   template:
-    src: etc-mongod.conf.j2
-    dest: /etc/mongod.conf
+    src: "{{ item }}.j2"
+    dest: "/{{ item }}"
     owner: root
     group: root
     mode: "0644"
   notify: restart mongodb
-
-- name: Configuring logrotate
-  template:
-    src: etc-logrotate.d-mongodb.j2
-    dest: /etc/logrotate.d/mongodb
-    owner: root
-    group: root
-    mode: "0644"
+  with_items:
+    - etc/logrotate.d/mongodb
+    - etc/mongod.conf
