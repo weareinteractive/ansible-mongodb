@@ -42,6 +42,12 @@ Here is a list of all the default variables for this role, which are also availa
 ```yaml
 ---
 
+# APT key id
+mongodb_apt_key_id: EA312927
+# APT key server
+mongodb_apt_key_server: keyserver.ubuntu.com
+# APT repository
+mongodb_apt_repository: "deb http://repo.mongodb.org/apt/{{ ansible_distribution }} {{ ansible_distribution_release }}/mongodb-org/3.2 {{ 'main' if ansible_distribution == 'debian' else 'multiverse' }}"
 # User
 mongodb_user: mongodb
 # Package
