@@ -1,8 +1,4 @@
 ---
-# For more information about default variables see:
-# http://www.ansibleworks.com/docs/playbooks_variables.html#id26
-#
-# mongodb_package: mongodb-org=3.0.1
 
 # User
 mongodb_user: mongodb
