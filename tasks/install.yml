@@ -2,12 +2,12 @@
 
 - name: Adding APT key
   apt_key:
-    id: 7F0CEB10
-    url: http://docs.mongodb.org/10gen-gpg-key.asc
+    id: EA312927
+    keyserver: keyserver.ubuntu.com
 
 - name: Add APT repository
   apt_repository:
-    repo: "deb http://repo.mongodb.org/apt/ubuntu {{ ansible_distribution_release }}/mongodb-org/3.0 multiverse"
+    repo: "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.2 main"
     update_cache: yes
 
 - name: Installing package

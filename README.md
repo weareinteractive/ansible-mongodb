@@ -41,10 +41,6 @@ Here is a list of all the default variables for this role, which are also availa
 
 ```yaml
 ---
-# For more information about default variables see:
-# http://www.ansibleworks.com/docs/playbooks_variables.html#id26
-#
-# mongodb_package: mongodb-org=3.0.1
 
 # User
 mongodb_user: mongodb
@@ -117,7 +113,7 @@ This is an example playbook:
   roles:
     - franklinkim.mongodb
   vars:
-    mongodb_package: mongodb-org=3.0.1
+    mongodb_package: mongodb-org=3.2.0
 
 ```
 
