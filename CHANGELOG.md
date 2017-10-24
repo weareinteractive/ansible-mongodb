@@ -1,3 +1,17 @@
+<a name="1.4.0"></a>
+## 1.4.0 (2017-10-24)
+
+
+#### Bug Fixes
+
+*   change config log state to touch instead of file ([7db6c589](https://github.com/weareinteractive/ansible-mongodb/commit/7db6c5891b4e52a9151077378da0e7d2aa168a6a))
+
+#### Features
+
+*   update default mongo version to 3.4 ([694a014c](https://github.com/weareinteractive/ansible-mongodb/commit/694a014cd6d3325e9273a299ff61fe9f8d3a030c))
+
+
+
 <a name="1.3.0"></a>
 ## 1.3.0 (2016-01-02)
 
