@@ -1,20 +1,20 @@
 ---
 
-- include: install.yml
+- import_tasks: install.yml
   tags:
     - database:nosql
     - mongodb
     - install
     - mongodb-install
 
-- include: config.yml
+- import_tasks: config.yml
   tags:
     - database:nosql
     - mongodb
     - config
     - mongodb-config
 
-- include: service.yml
+- import_tasks: service.yml
   tags:
     - database:nosql
     - mongodb
