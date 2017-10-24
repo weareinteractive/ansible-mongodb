@@ -1,8 +1,8 @@
 ---
 
 - hosts: all
-  sudo: yes
+  become: yes
   roles:
     - franklinkim.mongodb
   vars:
-    mongodb_package: mongodb-org=3.2.0
+    mongodb_conf_bind_ip: 0.0.0.0
