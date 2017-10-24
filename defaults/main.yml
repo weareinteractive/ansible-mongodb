@@ -1,9 +1,9 @@
 ---
 
 # Mongodb version
-mongodb_version: 3.2
+mongodb_version: 3.4
 # APT key id
-mongodb_apt_key_id: EA312927
+mongodb_apt_key_id: 0C49F3730359A14518585931BC711F9BA15703C6
 # APT key server
 mongodb_apt_key_server: keyserver.ubuntu.com
 # APT repository

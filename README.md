@@ -42,12 +42,14 @@ Here is a list of all the default variables for this role, which are also availa
 ```yaml
 ---
 
+# Mongodb version
+mongodb_version: 3.4
 # APT key id
-mongodb_apt_key_id: EA312927
+mongodb_apt_key_id: 0C49F3730359A14518585931BC711F9BA15703C6
 # APT key server
 mongodb_apt_key_server: keyserver.ubuntu.com
 # APT repository
-mongodb_apt_repository: "deb http://repo.mongodb.org/apt/{{ ansible_distribution }} {{ ansible_distribution_release }}/mongodb-org/3.2 {{ 'main' if ansible_distribution == 'debian' else 'multiverse' }}"
+mongodb_apt_repository: "deb http://repo.mongodb.org/apt/{{ ansible_distribution|lower }} {{ ansible_distribution_release }}/mongodb-org/{{ mongodb_version }} {{ 'main' if ansible_distribution == 'debian' else 'multiverse' }}"
 # User
 mongodb_user: mongodb
 # Package
@@ -115,24 +117,25 @@ This is an example playbook:
 ---
 
 - hosts: all
-  sudo: yes
+  become: yes
   roles:
     - franklinkim.mongodb
   vars:
-    mongodb_package: mongodb-org=3.2.0
+    mongodb_conf_bind_ip: 0.0.0.0
 
 ```
+
 
 ## Testing
 
 ```shell
 $ git clone https://github.com/weareinteractive/ansible-mongodb.git
 $ cd ansible-mongodb
-$ vagrant up
+$ make test
 ```
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests and examples for any new or changed functionality.
+In lieu of a formal style guide, take care to maintain the existing coding style. Add unit tests and examples for any new or changed functionality.
 
 1. Fork it
 2. Create your feature branch (`git checkout -b my-new-feature`)

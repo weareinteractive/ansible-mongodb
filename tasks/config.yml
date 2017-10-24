@@ -10,7 +10,7 @@
 
 - name: Configuring log
   file:
-    state: file
+    state: touch
     path: "{{ mongodb_conf_logpath }}"
     owner: "{{ mongodb_user }}"
     group: "{{ mongodb_user }}"
