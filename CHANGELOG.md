@@ -1,3 +1,13 @@
+<a name="1.4.1"></a>
+### 1.4.1 (2017-10-24)
+
+
+#### Features
+
+*   adopt for ansible 2.4 ([022bf73b](https://github.com/weareinteractive/ansible-mongodb/commit/022bf73bdcf315778c68e2ad01920c353cad0f9c))
+
+
+
 <a name="1.4.0"></a>
 ## 1.4.0 (2017-10-24)
 
