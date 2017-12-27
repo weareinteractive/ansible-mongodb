@@ -1,6 +1,6 @@
 # {{ ansible_managed }}
 
-{{ mongodb_conf_logpath }} {
+{{ mongodb_conf.systemLog.path }} {
   compress
   copytruncate
   daily

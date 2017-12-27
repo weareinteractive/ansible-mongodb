@@ -3,23 +3,20 @@
 - name: Configuring database directory
   file:
     state: directory
-    path: "{{ mongodb_conf_dbpath }}"
+    path: "{{ item }}"
     owner: "{{ mongodb_user }}"
     group: "{{ mongodb_user }}"
     mode: "0755"
-
-- name: Configuring log
-  file:
-    state: touch
-    path: "{{ mongodb_conf_logpath }}"
-    owner: "{{ mongodb_user }}"
-    group: "{{ mongodb_user }}"
-    mode: "0644"
+  with_items:
+    - "{{ mongodb_conf.storage.dbPath }}"
+    - "{{ mongodb_conf.systemLog.path | dirname }}"
+    - "{{ mongodb_conf.processManagement.pidFilePath | dirname }}"
 
 - name: Configuring mongodb
   template:
     src: "{{ item }}.j2"
     dest: "/{{ item }}"
+    backup: yes
     owner: root
     group: root
     mode: "0644"

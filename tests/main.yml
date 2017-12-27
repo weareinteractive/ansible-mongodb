@@ -4,4 +4,4 @@
   roles:
     - franklinkim.mongodb
   vars:
-    mongodb_conf_bind_ip: 0.0.0.0
+    mongodb_conf: "{{ mongodb_conf_defaults | combine({'net':{'bindIp':'0.0.0.0'}}, recursive=True) }}"
