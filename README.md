@@ -33,7 +33,7 @@ $ git clone https://github.com/weareinteractive/ansible-mongodb.git franklinkim.
 
 ## Dependencies
 
-* Ansible >= 1.9
+* Ansible >= 2.4
 
 ## Variables
 
@@ -43,9 +43,9 @@ Here is a list of all the default variables for this role, which are also availa
 ---
 
 # Mongodb version
-mongodb_version: 3.4
+mongodb_version: 3.6
 # APT key id
-mongodb_apt_key_id: 0C49F3730359A14518585931BC711F9BA15703C6
+mongodb_apt_key_id: 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
 # APT key server
 mongodb_apt_key_server: keyserver.ubuntu.com
 # APT repository
@@ -54,40 +54,30 @@ mongodb_apt_repository: "deb http://repo.mongodb.org/apt/{{ ansible_distribution
 mongodb_user: mongodb
 # Package
 mongodb_package: mongodb-org
-
-# Run with security
-mongodb_conf_auth: no
-# Directory for datafiles
-mongodb_conf_dbpath: /var/lib/mongodb
-# Log file to send write to instead of stdout
-mongodb_conf_logpath: /var/log/mongodb/mongod.log
-# Specify port number
-mongodb_conf_port: 27017
-# Comma separated list of ip addresses to listen on
-mongodb_conf_bind_ip: 127.0.0.1
-# Enable journaling
-mongodb_conf_journal: no
-# Append to logpath instead of over-writing
-mongodb_conf_logappend: yes
-# Limits each database to a certain number of files
-mongodb_conf_quota: no
-# Disable scripting engine
-mongodb_conf_noscripting: no
-# Do not allow table scans
-mongodb_conf_notablescan: no
-# Periodically show cpu and iowait utilization
-mongodb_conf_cpu: no
-# Enable http interface
-mongodb_conf_httpinterface: no
-# Inspect all client data for validity on receipt
-mongodb_conf_objcheck: no
-# Disable data file preallocation.
-mongodb_conf_noprealloc: no
-
+# For documentation of all options, see:
+# http://docs.mongodb.org/manual/reference/configuration-options/
+mongodb_conf_defaults:
+  systemLog:
+    destination: file
+    logAppend: true
+    path: /var/log/mongodb/mongod.log
+  storage:
+    dbPath: /var/lib/mongo
+    journal:
+      enabled: true
+  processManagement:
+    fork: true
+    pidFilePath: /var/run/mongodb/mongod.pid
+    timeZoneInfo: /usr/share/zoneinfo
+  net:
+    port: 27017
+    bindIp: 127.0.0.1
+mongodb_conf: "{{ mongodb_conf_defaults | combine({}, recursive=True) }}"
 # start on boot
 mongodb_service_enabled: yes
 # current state: started, stopped
 mongodb_service_state: started
+
 
 ```
 
@@ -117,11 +107,10 @@ This is an example playbook:
 ---
 
 - hosts: all
-  become: yes
   roles:
     - franklinkim.mongodb
   vars:
-    mongodb_conf_bind_ip: 0.0.0.0
+    mongodb_conf: "{{ mongodb_conf_defaults | combine({'net':{'bindIp':'0.0.0.0'}}, recursive=True) }}"
 
 ```
 
