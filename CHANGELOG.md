@@ -1,3 +1,17 @@
+<a name="2.0.0"></a>
+## 2.0.0 (2017-12-27)
+
+
+#### Breaking Changes
+
+*   update for mongo 3.6 ([441693aa](https://github.com/weareinteractive/ansible-mongodb/commit/441693aaefe7a62d96771b1ef00b725ec5e8d27f), breaks [#](https://github.com/weareinteractive/ansible-mongodb/issues/))
+
+#### Features
+
+*   update for mongo 3.6 ([441693aa](https://github.com/weareinteractive/ansible-mongodb/commit/441693aaefe7a62d96771b1ef00b725ec5e8d27f), breaks [#](https://github.com/weareinteractive/ansible-mongodb/issues/))
+
+
+
 <a name="1.4.1"></a>
 ### 1.4.1 (2017-10-24)
 
